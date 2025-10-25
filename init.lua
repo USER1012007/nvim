@@ -1,7 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
--- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 if not vim.uv.fs_stat(lazypath) then
@@ -11,9 +10,18 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.neoformat_try_node_exe = 1
+
+-- Example: Format on save for specific filetypes
+vim.cmd [[
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre *.c Neoformat
+  augroup END
+]]
+
 local lazy_config = require "configs.lazy"
 
--- load plugins
 require("lazy").setup({
   {
     "NvChad/NvChad",
@@ -25,12 +33,11 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
--- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
-require "autocmds"
+require "nvchad.autocmds"
 
 vim.schedule(function()
   require "mappings"
