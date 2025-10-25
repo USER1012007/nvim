@@ -12,7 +12,6 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.neoformat_try_node_exe = 1
 
--- Example: Format on save for specific filetypes
 vim.cmd [[
   augroup fmt
     autocmd!
