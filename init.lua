@@ -16,6 +16,11 @@ vim.cmd [[
   augroup fmt
     autocmd!
     autocmd BufWritePre *.c Neoformat
+    autocmd BufWritePre *.cpp Neoformat
+    autocmd BufWritePre *.cs Neoformat
+    autocmd BufWritePre *.json Neoformat
+    autocmd BufWritePre *.js Neoformat
+    autocmd BufWritePre *.nix Neoformat
   augroup END
 ]]
 
