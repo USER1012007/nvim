@@ -22,6 +22,11 @@ vim.cmd [[
     autocmd BufWritePre *.js Neoformat
     autocmd BufWritePre *.nix Neoformat
     autocmd BufWritePre *.rs Neoformat
+    autocmd BufWritePre *.ts Neoformat
+    autocmd BufWritePre *.java Neoformat
+    autocmd BufWritePre *.php Neoformat
+    autocmd BufWritePre *.html Neoformat
+    autocmd BufWritePre *.asm Neoformat
   augroup END
 ]]
 
