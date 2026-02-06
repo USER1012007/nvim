@@ -45,29 +45,30 @@ return {
         { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
   },
-  -- {
-  --   'github/copilot.vim',
-  --   lazy = false,
-  --   init = function()
-  --     vim.g.copilot_no_tab_map = true
-  --   end,
-  --   config = function()
-  --     vim.keymap.set('i', '<C-a>', 'copilot#Accept("\\<CR>")', {
-  --       silent = true,
-  --       expr = true,
-  --       replace_keycodes = false,
-  --       desc = "Copilot: Accept suggestion"
-  --     })
-  --     vim.keymap.set('i', '<C-e>', '<cmd>Copilot dismiss<CR>', {
-  --       silent = true,
-  --       desc = "Copilot: Dismiss suggestion"
-  --     })
-  --     vim.keymap.set('i', '<C-i>', '<cmd>Copilot panel<CR>', {
-  --       silent = true,
-  --       desc = "Copilot: Open suggestion panel"
-  --     })
-  --   end,
-  -- },
+  {
+    'github/copilot.vim',
+    lazy = false,
+    enabled = true,
+    init = function()
+      vim.g.copilot_no_tab_map = true
+    end,
+    config = function()
+      vim.keymap.set('i', '<C-a>', 'copilot#Accept("\\<CR>")', {
+        silent = true,
+        expr = true,
+        replace_keycodes = false,
+        desc = "Copilot: Accept suggestion"
+      })
+      vim.keymap.set('i', '<C-e>', '<cmd>Copilot dismiss<CR>', {
+        silent = true,
+        desc = "Copilot: Dismiss suggestion"
+      })
+      vim.keymap.set('i', '<C-i>', '<cmd>Copilot panel<CR>', {
+        silent = true,
+        desc = "Copilot: Open suggestion panel"
+      })
+    end,
+  },
   {
     "mfussenegger/nvim-jdtls",
     ft = "java",
