@@ -98,12 +98,29 @@ return {
           
           local opts = { buffer = bufnr }
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+          -- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         end,
       }
       
       jdtls.start_or_attach(config)
     end,
+  },
+  {
+    "nvzone/timerly",
+    dependencies = 'nvzone/volt',
+    cmd = "TimerlyToggle",
+    opts = {},
+    config = {
+      minutes = { 25, 5 },
+      on_start = nil,
+      on_finish = function()
+        vim.notify "Timerly: time's up!"
+      end,
+      mapping = nil,
+      position = "top-right",
+    },
+
+    status = "",
   },
 }
