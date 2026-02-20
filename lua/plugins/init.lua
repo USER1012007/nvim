@@ -107,20 +107,30 @@ return {
     end,
   },
   {
-    "nvzone/timerly",
-    dependencies = 'nvzone/volt',
-    cmd = "TimerlyToggle",
+    'ravsii/timers.nvim',
+    version = "*",
     opts = {},
-    config = {
-      minutes = { 25, 5 },
-      on_start = nil,
-      on_finish = function()
-        vim.notify "Timerly: time's up!"
-      end,
-      mapping = nil,
-      position = "top-right",
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    lazy = false,
+    enabled = true,
+    opts = {
+      sections = {
+        lualine_z = {
+          { function() return require("timers.integrations.lualine").closest_timer() end },
+          { 'progress' },
+        },
+      },
     },
-
-    status = "",
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("user.colors").setup()
+    end,
   },
 }
