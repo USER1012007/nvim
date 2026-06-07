@@ -29,7 +29,6 @@ vim.cmd [[
     autocmd BufWritePre *.asm Neoformat
   augroup END
 ]]
-
 local lazy_config = require "configs.lazy"
 
 require("lazy").setup({

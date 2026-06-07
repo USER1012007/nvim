@@ -3,17 +3,6 @@
 local nvlsp = require("nvchad.configs.lspconfig")
 nvlsp.defaults()
 
--- ════════════════════════════════════════════════════════════════════════
--- TREE-SITTER: Protección contra errores de concealment
--- ════════════════════════════════════════════════════════════════════════
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'cpp' },
-  callback = function()
-    -- Deshabilitar concealment para evitar el error
-    vim.opt_local.conceallevel = 0
-    vim.opt_local.concealcursor = ''
-  end,
-})
 
 -- ════════════════════════════════════════════════════════════════════════
 -- LSP: Configuración de Diagnósticos

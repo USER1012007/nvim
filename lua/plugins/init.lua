@@ -1,15 +1,5 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      opts.highlight = opts.highlight or {}
-      opts.highlight.enable = true
-      opts.highlight.disable = { "c", "cpp" }  -- ← Deshabilitar Tree-sitter para C/C++
-      
-      return opts
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     event = 'BufWritePre',
     opts = require "configs.conform",
@@ -78,6 +68,7 @@ return {
         desc = "Copilot: Open suggestion panel"
       })
     end,
+
   },
   {
     "mfussenegger/nvim-jdtls",
