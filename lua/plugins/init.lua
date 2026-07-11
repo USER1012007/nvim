@@ -2,6 +2,16 @@ return {
   {
     "stevearc/conform.nvim",
     event = 'BufWritePre',
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        "<leader>m",
+        function()
+          require("conform").format({ async = true, lsp_format = "fallback" })
+        end,
+        desc = "Format buffer",
+      },
+    },
     opts = require "configs.conform",
   },
   {
@@ -21,13 +31,6 @@ return {
 			}
 		end,
 	},
-  {
-    "sbdchd/neoformat",
-    lazy = false,
-    keys = {
-      { "<leader>m", "<cmd>Neoformat<CR>", desc = "Format with Neoformat" },
-    },
-  },
   {
     "kdheepak/lazygit.nvim",
     lazy = true,
@@ -112,6 +115,28 @@ return {
     version = "*",
     opts = {},
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  -- {
+  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   lazy = false,
+  --   enabled = true,
+  --   config = function()
+  --     require('render-markdown').setup({
+  --       conceal = true,
+  --       filetypes = { 'markdown' },
+  --       render_command = 'glow',
+  --       open_command = 'xdg-open',
+  --     })
+  --   end,
+  -- },
   {
     'nvim-lualine/lualine.nvim',
     lazy = false,

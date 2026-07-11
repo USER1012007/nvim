@@ -10,25 +10,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.neoformat_try_node_exe = 1
-
-vim.cmd [[
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre *.c Neoformat
-    autocmd BufWritePre *.cpp Neoformat
-    autocmd BufWritePre *.cs Neoformat
-    autocmd BufWritePre *.json Neoformat
-    autocmd BufWritePre *.js Neoformat
-    autocmd BufWritePre *.nix Neoformat
-    autocmd BufWritePre *.rs Neoformat
-    autocmd BufWritePre *.ts Neoformat
-    autocmd BufWritePre *.java Neoformat
-    autocmd BufWritePre *.php Neoformat
-    autocmd BufWritePre *.html Neoformat
-    autocmd BufWritePre *.asm Neoformat
-  augroup END
-]]
 local lazy_config = require "configs.lazy"
 
 require("lazy").setup({
